@@ -75,6 +75,7 @@
 		</Linker>
 		<Unit filename="XMP_config.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="photosphere.h" />
 		<Unit filename="utilities.h" />
 		<Extensions>
 			<code_completion />

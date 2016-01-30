@@ -2,13 +2,15 @@
 #define __UTILITIES_H__
 
 #include <iostream>
+#include <array>
 #include <XMP.hpp>
 
 using namespace std;
 
 #define NOACTIONEXAM(x, msg, final) {if (!(x)) {cout << (msg) << endl;}}
-#define LOCALEXAM(x, msg, final) {if (!(x)) {cout << (msg) << endl; (final)(); return false;}}
 #define GLOBALEXAM(x, msg, final) {if (!(x)) {cout << (msg) << endl; (final)(); exit(1);}}
+#define LOCALEXAM(x, msg, final) {if (!(x)) {cout << (msg) << endl; (final)(); return false;}}
+#define NULLPTREXAM(x, msg, final) {if (!(x)) {cout << (msg) << endl; (final)(); return nullptr;}}
 
 void NULLFUNCTION() {}
 
@@ -56,30 +58,5 @@ struct XMPProperty
     bool IsRequired;
 };
 
-string PhotoSphereURI("http://ns.google.com/photos/1.0/panorama/");
-vector<XMPProperty> PhotoSphereProperties{
-{"GPano:UsePanoramaViewer"				,	Bool	,	false	},
-{"GPano:CaptureSoftware"				,	String	,	false	},
-{"GPano:StitchingSoftware"				,	String	,	false	},
-{"GPano:ProjectionType"					,	String	,	true	},
-{"GPano:PoseHeadingDegrees"				,	Float	,	false	},
-{"GPano:PosePitchDegrees"				,	Float	,	false	},
-{"GPano:PoseRollDegrees"				,	Float	,	false	},
-{"GPano:InitialViewHeadingDegrees"		,	Int		,	false	},
-{"GPano:InitialViewPitchDegrees"		,	Int		,	false	},
-{"GPano:InitialViewRollDegrees"			,	Int		,	false	},
-{"GPano:InitialHorizontalFOVDegrees"	,	Float	,	false	},
-{"GPano:FirstPhotoDate"					,	Date	,	false	},
-{"GPano:LastPhotoDate"					,	Date	,	false	},
-{"GPano:SourcePhotosCount"				,	Int		,	false	},
-{"GPano:ExposureLockUsed"				,	Bool	,	false	},
-{"GPano:CroppedAreaImageWidthPixels"	,	Int		,	true	},
-{"GPano:CroppedAreaImageHeightPixels"	,	Int		,	true	},
-{"GPano:FullPanoWidthPixels"			,	Int		,	true	},
-{"GPano:FullPanoHeightPixels"			,	Int		,	true	},
-{"GPano:CroppedAreaLeftPixels"			,	Int		,	true	},
-{"GPano:CroppedAreaTopPixels"			,	Int		,	true	},
-{"GPano:InitialCameraDolly"				,	Float	,	false	}
-};
 
 #endif // __UTILITIES_H__
