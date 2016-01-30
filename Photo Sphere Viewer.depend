@@ -1,0 +1,99 @@
+# depslib dependency file v1.0
+1454059317 source:h:\mydata\mydocuments\casual\examples\photo sphere viewer\main.cpp
+	"XMP_config.h"
+	"utilities.h"
+
+1454044479 h:\mydata\mydocuments\casual\examples\photo sphere viewer\xmp_config.h
+	<string>
+	<XMP.incl_cpp>
+	<XMP.hpp>
+
+1418852502 e:\manuallibs\xmp\include\xmp.incl_cpp
+	"XMP.hpp"
+	"client-glue/TXMPMeta.incl_cpp"
+	"client-glue/TXMPIterator.incl_cpp"
+	"client-glue/TXMPUtils.incl_cpp"
+	"client-glue/TXMPFiles.incl_cpp"
+
+1418852502 e:\manuallibs\xmp\include\xmp.hpp
+	"XMP_Environment.h"
+	"XMP_Version.h"
+	"XMP_Const.h"
+	"TXMPMeta.hpp"
+	"TXMPIterator.hpp"
+	"TXMPUtils.hpp"
+	"client-glue/TXMPMeta.incl_cpp"
+	"client-glue/TXMPIterator.incl_cpp"
+	"client-glue/TXMPUtils.incl_cpp"
+	"client-glue/TXMPFiles.incl_cpp"
+	"TXMPFiles.hpp"
+	"client-glue/TXMPFiles.incl_cpp"
+
+1418852502 e:\manuallibs\xmp\include\xmp_environment.h
+	<stdio.h>
+	<TargetConditionals.h>
+
+1418852500 e:\manuallibs\xmp\include\xmp_version.h
+
+1418852502 e:\manuallibs\xmp\include\xmp_const.h
+	"XMP_Environment.h"
+	<stddef.h>
+	<stdint.h>
+	<inttypes.h>
+	<vector>
+
+1418852502 e:\manuallibs\xmp\include\txmpmeta.hpp
+
+1418852502 e:\manuallibs\xmp\include\txmpiterator.hpp
+	"client-glue/WXMPIterator.hpp"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\wxmpiterator.hpp
+	"client-glue/WXMP_Common.hpp"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\wxmp_common.hpp
+
+1418852502 e:\manuallibs\xmp\include\txmputils.hpp
+
+1418852502 e:\manuallibs\xmp\include\client-glue\txmpmeta.incl_cpp
+	"XMP.hpp"
+	"client-glue/WXMP_Common.hpp"
+	"client-glue/WXMPMeta.hpp"
+	"XMPCore/XMPCore_Defines.h"
+	"XMPCore/XMPCore_Defines.h"
+	"XMPCore/Interfaces/IXMPDOMFactory.h"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\wxmpmeta.hpp
+	"client-glue/WXMP_Common.hpp"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\txmpiterator.incl_cpp
+	"XMP.hpp"
+	"client-glue/WXMP_Common.hpp"
+	"client-glue/WXMPIterator.hpp"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\txmputils.incl_cpp
+	"XMP.hpp"
+	"client-glue/WXMP_Common.hpp"
+	"client-glue/WXMPUtils.hpp"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\wxmputils.hpp
+	"client-glue/WXMP_Common.hpp"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\txmpfiles.incl_cpp
+	"client-glue/WXMP_Common.hpp"
+	"client-glue/WXMPFiles.hpp"
+
+1418852502 e:\manuallibs\xmp\include\client-glue\wxmpfiles.hpp
+	"client-glue/WXMP_Common.hpp"
+	"XMP_IO.hpp"
+
+1418852502 e:\manuallibs\xmp\include\xmp_io.hpp
+	"XMP_Environment.h"
+	"XMP_Const.h"
+
+1418852502 e:\manuallibs\xmp\include\txmpfiles.hpp
+	"XMP_IO.hpp"
+
+1454059477 h:\mydata\mydocuments\casual\examples\photo sphere viewer\utilities.h
+	<iostream>
+	<XMP.hpp>
+
