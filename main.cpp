@@ -17,7 +17,7 @@ int main(int argc, char **argv)
     GLOBALEXAM(SXMPFiles::Initialize(), "XMPFiles initialize failed!", Terminate);
     SXMPFiles xmp_file;
     SXMPMeta xmp_meta;
-    string test_file_name = "test_image.jpg";
+    string test_file_name = "../assets/PhotoSphereTestImage.jpg";
     if (!xmp_file.OpenFile(test_file_name, kXMP_UnknownFile, kXMPFiles_OpenForRead | kXMPFiles_OpenUseSmartHandler))
     {
         if (!xmp_file.OpenFile(test_file_name, kXMP_UnknownFile, kXMPFiles_OpenForUpdate | kXMPFiles_OpenUsePacketScanning))
