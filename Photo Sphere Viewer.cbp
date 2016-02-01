@@ -12,6 +12,7 @@
 				<Option type="1" />
 				<Option compiler="gcc" />
 				<Compiler>
+					<Add option="-std=c++11" />
 					<Add option="-g" />
 				</Compiler>
 			</Target>
@@ -36,25 +37,21 @@
 			<Add option="-Wno-unknown-pragmas" />
 			<Add option="-DWIN_ENV=1" />
 			<Add option="-DXMP_StaticBuild=1" />
-			<Add option="-D_SCL_SECURE_NO_WARNINGS=1" />
 			<Add option="-DWIN32=1" />
-			<Add option="-D_CONSOLE" />
 			<Add option="-DNOMINMAX" />
-			<Add option="-DUNICODE" />
-			<Add option="-D_UNICODE" />
 			<Add directory="../../ThirdParty/freeglut/include" />
 			<Add directory="../../ThirdParty/FreeImage/include" />
 			<Add directory="../../ThirdParty/glew/include" />
 			<Add directory="../../ThirdParty/glm" />
 			<Add directory="../../ThirdParty/XMP/include" />
+			<Add directory="../../Utilities" />
 		</Compiler>
 		<Linker>
 			<Add option="-lopengl32" />
 			<Add option="-lglu32" />
-			<Add option="-lfreeglut_static" />
+			<Add option="-lfreeglut" />
 			<Add option="-lFreeImage" />
 			<Add option="-lglew32" />
-			<Add option="-fopenmp" />
 			<Add option="-lXMPCoreStatic" />
 			<Add option="-lXMPFilesStatic" />
 			<Add option="-lRpcrt4" />
@@ -73,10 +70,14 @@
 			<Add directory="../../ThirdParty/glew/lib" />
 			<Add directory="../../ThirdParty/XMP/libraries" />
 		</Linker>
+		<Unit filename="PhotoSphere.cpp" />
+		<Unit filename="PhotoSphere.h" />
+		<Unit filename="PhotoSphereProperty.cpp" />
+		<Unit filename="PhotoSphereProperty.h" />
+		<Unit filename="Utilities.cpp" />
+		<Unit filename="Utilities.h" />
 		<Unit filename="XMP_config.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="photosphere.h" />
-		<Unit filename="utilities.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
