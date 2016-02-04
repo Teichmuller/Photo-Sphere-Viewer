@@ -32,11 +32,12 @@ PhotoSphere *PhotoSphere::FromFile(const string &filename, uint32_t hslice, uint
     NULLPTREXAM(ret->m_texture != nullptr, "Creating texture failed!", ret->Dispose);
 
     glBindTexture(GL_TEXTURE_2D, *ret->m_texture);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_BORDER);
-    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_BORDER);
+    /// clamp-to-edge to remove stiching line
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
+    glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
-    glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, glm::value_ptr(vec4(.0, .0, .0, .0)));
+//    glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, glm::value_ptr(vec4(.0, .0, .0, .0)));
     glBindTexture(GL_TEXTURE_2D, 0);
     delete image;
 
@@ -70,6 +71,7 @@ void PhotoSphere::Draw()
     glUniform1i(glGetUniformLocation(m_shader->Program, "Texture"), 0);
     glBindVertexArray(*m_vao);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *m_ibo);
+    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glDrawElements(GL_TRIANGLES, m_ibo->GetCount(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
@@ -101,6 +103,7 @@ void PhotoSphere::GenerateSphere(uint32_t hslice, uint32_t vslice, vector<vec3> 
         {
             double v_rad = v_rad_start - v * (v_rad_start - v_rad_end) / vslice;
             double h_rad = h * (h_rad_end - h_rad_start) / hslice;
+            /// Pre-generate cartesian coordinates, reduce energy consumption and protect environment :)
             double sv = sin(v_rad), cv = cos(v_rad), sh = sin(h_rad), ch = cos(h_rad);
             vec3 cartesian(cv * ch, sv, cv * sh);
             vertices.push_back(cartesian);

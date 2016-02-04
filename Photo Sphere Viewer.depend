@@ -195,11 +195,12 @@
 	<iostream>
 	<XMP.hpp>
 
-1454285435 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\main.cpp
+1454558715 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\main.cpp
 	<GL/glew.h>
 	<GL/freeglut.h>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
+	<cmath>
 	"PhotoSphere.h"
 	"PhotoSphereProperty.h"
 
@@ -309,7 +310,7 @@
 	<glm/glm.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1454285013 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphere.cpp
+1454559093 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphere.cpp
 	"PhotoSphere.h"
 
 1452827267 h:\mydata\mydocuments\code\utilities\gl\buffer.h

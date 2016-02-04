@@ -4,6 +4,7 @@
 #include <GL/freeglut.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
+#include <cmath>
 
 #include "PhotoSphere.h"
 #include "PhotoSphereProperty.h"
@@ -13,23 +14,40 @@ using namespace glm;
 
 PhotoSphere *ps;
 
-mat4 projection;
-vec3 rotation(0, 0, 0);
-vec3 position(0, 0, 0);
+mat4 projection(1);
+mat4 transform(1);
+vec3 rotation(0);
+vec3 position(0);
 int mx = 0, my = 0;
+vec3 CurrentPos = vec3(0), PrevPos = vec3(0);
 int WindowWidth = 800, WindowHeight = 600;
+GLdouble ratio = (float)WindowWidth / (float)WindowHeight;
+bool IsFullScreen = false;
 
 float fovy = quarter_pi<float>();
 float RotateVStep, RotateHStep;
 
-
+vec3 MouseToSphere(vec2 pos)
+{
+    float cx = (pos.x * 2 - WindowWidth) / WindowWidth;
+    float cy = (pos.y * 2 - WindowHeight) / WindowHeight;
+    return vec3(atan(cx * tan(fovy * ratio / 2)), atan(cy * tan(fovy / 2)), 0);//
+}
 
 void ApplyTransform()
 {
-    mat4 transform = mat4(1);
+    transform = mat4(1);
     transform = translate(transform, position);
+//    float cot_H = 1 / tan(rotation.s), cot_V = 1 / tan(rotation.t), ch2 = cot_H * cot_H, cv2 = cot_V * cot_V;
+//    float z_angle = half_pi<float>() - acos(sqrt(1 / (1 + cv2 + cv2 * ch2)));
+//    if ((rotation.t > 0 && rotation.s > pi<float>()) || (rotation.t < 0 && rotation.s < pi<float>())) z_angle *= -1;
+//    transform = rotate(transform, z_angle, vec3(0, 0, 1));
     transform = rotate(transform, rotation.t, vec3(1, 0, 0));
     transform = rotate(transform, rotation.s, vec3(0, 1, 0));
+//    cout << "theta = " << rotation.t / pi<float>() * 180 << endl;
+//    cout << "phi = " << rotation.s / pi<float>() * 180 << endl;
+//    cout << "z = " << z_angle / pi<float>() * 180 << endl;
+    cout << endl;
 //    transform = scale(transform, vec3(10, 10, 10));
     ps->GetShader().Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "transform");
@@ -38,7 +56,7 @@ void ApplyTransform()
 
 void ApplyProjection()
 {
-    GLdouble ratio = (float)WindowWidth / (float)WindowHeight;
+    ratio = (float)WindowWidth / (float)WindowHeight;
     //projection = ortho<float>(-1, 1, -1, 1, -100, 100);
     projection = perspective<float>(fovy, ratio, 0.01, 1000);
     ps->GetShader().Use();
@@ -91,7 +109,6 @@ void Idle()
 
 void Display()
 {
-//    glutSwapBuffers();
 }
 
 void Mouse(int button, int state, int x, int y)
@@ -100,33 +117,31 @@ void Mouse(int button, int state, int x, int y)
 	{
 		if (state == GLUT_DOWN)
 		{
-			mx = x;
-			my = y;
-//			lbuttonDown = true;
+//			mx = x;
+//			my = y;
+            CurrentPos = MouseToSphere(vec2(x, y));
 		}
 		else
 		{
-//			lbuttonDown = false;
 		}
 	}
 }
 
 void Motion(int x, int y)
 {
-//    static int px, py;
-//    static float step = 50;
-    rotation.t -= (float)(y - my) * RotateVStep;
+//    mx = x;
+//    my = y;
+    PrevPos = CurrentPos;
+    CurrentPos = MouseToSphere(vec2(x, y));
+    rotation -= (CurrentPos - PrevPos);
     if (rotation.t > half_pi<float>())
         rotation.t = half_pi<float>();
     if (rotation.t < -half_pi<float>())
         rotation.t = -half_pi<float>();
-    rotation.s -= (float)(x - mx) * RotateHStep * (1 + abs(rotation.t));
     if (rotation.s > two_pi<float>())
         rotation.s -= two_pi<float>();
     if (rotation.s < 0)
         rotation.s += two_pi<float>();
-    mx = x;
-    my = y;
     ApplyTransform();
 }
 
@@ -148,38 +163,54 @@ void Specialkey(int key, int x, int y)
     static float step = 0.01;
 	if (key == GLUT_KEY_LEFT)
 	{
-//	    position += vec3(-step, 0, 0);
         rotation.s -= step;
 	}
 	if (key == GLUT_KEY_RIGHT)
 	{
-//	    position += vec3(step, 0, 0);
         rotation.s += step;
 	}
 	if (key == GLUT_KEY_UP)
 	{
-//	    position += vec3(0, 0, -step);
         rotation.t += step;
 	}
 	if (key == GLUT_KEY_DOWN)
 	{
-//	    position += vec3(0, 0, step);
         rotation.t -= step;
 	}
+	if (key == GLUT_KEY_F1)
+    {
+        if (IsFullScreen)
+        {
+            glutLeaveFullScreen();
+            IsFullScreen = false;
+        }
+        else
+        {
+            glutFullScreen();
+            IsFullScreen = true;
+        }
+    }
     ApplyTransform();
 }
 
-void Init()
+void Init(const string &filename)
 {
-    ps = PhotoSphere::FromFile("../assets/PhotoSphereTestImage.jpg", 52, 52);
+    ps = PhotoSphere::FromFile(filename, 26, 13);
     int value;
     glGetIntegerv(GL_MAX_TEXTURE_SIZE, &value);
+
     glEnable(GL_DEPTH_TEST);
     //glDisable(GL_CULL_FACE);
 }
 
 int main(int argc, char **argv)
 {
+    if (argc < 2)
+    {
+        cout << "Usage: PhotoSphereViewer filename" << endl;
+        return 0;
+    }
+    string filename(argv[1]);
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
     glutInitWindowSize(800, 600);
@@ -192,7 +223,7 @@ int main(int argc, char **argv)
         exit(0);
     }
 
-    Init();
+    Init(filename);
 
     glutReshapeFunc(Reshape);
     glutIdleFunc(Idle);

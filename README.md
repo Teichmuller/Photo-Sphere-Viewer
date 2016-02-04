@@ -7,5 +7,5 @@
 - [ ] Remove stitching line
 - [ ] Calibrate motion
 - [ ] Refactor motion system
-- [ ] Delay coordinate transform
+- [ ] Delay coordinate trandform
 - [ ] Damping motion system
