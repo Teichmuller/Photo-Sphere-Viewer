@@ -4,8 +4,7 @@
 - [x] Reading metadata
 - [x] Drawing method
 - [x] Basic motion 
-- [ ] Remove stitching line
+- [x] Remove stitching line
 - [ ] Calibrate motion
 - [ ] Refactor motion system
-- [ ] Delay coordinate trandform
 - [ ] Damping motion system
