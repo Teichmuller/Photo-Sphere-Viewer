@@ -1,6 +1,7 @@
 /// https://developers.google.com/streetview/spherical-metadata
 
 #include <GL/glew.h>
+#include <GL/wglew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <cmath>
@@ -53,6 +54,7 @@ void ApplyTransform()
     ps->GetShader().Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "transform");
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+    glutPostRedisplay();
 }
 
 void ApplyProjection()
@@ -80,36 +82,44 @@ void Reshape(int width, int height)
     ApplyTransform();
 }
 
-void Idle()
-{
-    static const int interval[] = {17, 16, 17}, nextState[] = {1, 2, 0};
-    static int prevTime = 0, currentTime, currentState = 0, jump, difference;
-    currentTime = glutGet(GLUT_ELAPSED_TIME);
-    difference = currentTime - prevTime;
-    if (difference > interval[currentState])
-    {
-        glClearColor(0.f, 0.f, 0.f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-//        rotation += vec3(0.01, 0., 0);
-//        ApplyTransform();
-        ps->Draw();
-
-        glutSwapBuffers();
-
-        jump = difference % 50;
-        prevTime += difference - jump;
-        while (jump > interval[currentState])
-        {
-            jump -= interval[currentState];
-            prevTime += interval[currentState];
-            currentState = nextState[currentState];
-        }
-    }
-}
+//void Idle()
+//{
+//    static const int interval[] = {17, 16, 17}, nextState[] = {1, 2, 0};
+//    static int prevTime = 0, currentTime, currentState = 0, jump, difference;
+//    currentTime = glutGet(GLUT_ELAPSED_TIME);
+//    difference = currentTime - prevTime;
+//    if (difference > interval[currentState])
+//    {
+//        glClearColor(0.f, 0.f, 0.f, 1.0f);
+//        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+//
+////        rotation += vec3(0.01, 0., 0);
+////        ApplyTransform();
+//        ps->Draw();
+//
+//        glutSwapBuffers();
+//
+//        jump = difference % 50;
+//        prevTime += difference - jump;
+//        while (jump > interval[currentState])
+//        {
+//            jump -= interval[currentState];
+//            prevTime += interval[currentState];
+//            currentState = nextState[currentState];
+//        }
+//    }
+//}
 
 void Display()
 {
+    glClearColor(0.f, 0.f, 0.f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+//        rotation += vec3(0.01, 0., 0);
+//        ApplyTransform();
+    ps->Draw();
+
+    glutSwapBuffers();
 }
 
 void Mouse(int button, int state, int x, int y)
@@ -202,7 +212,9 @@ bool Init(const string &filename)
 //    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &value);
 
     glEnable(GL_DEPTH_TEST);
-    //glDisable(GL_CULL_FACE);
+
+    // Enable V-Sync to avoid tearing
+    wglSwapIntervalEXT(1);
     return true;
 }
 
@@ -230,7 +242,8 @@ int main(int argc, char **argv)
     COND_ERROR_HANDLE_EXIT(Init(filename), "Initialzation failed!", Dispose, 0);
 
     glutReshapeFunc(Reshape);
-    glutIdleFunc(Idle);
+    // Deregister idle function to reduce CPU time
+//    glutIdleFunc(Idle);
     glutDisplayFunc(Display);
     glutMouseFunc(Mouse);
     glutMotionFunc(Motion);

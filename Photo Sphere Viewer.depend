@@ -1421,3 +1421,7 @@
 1454646189 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\utilities.cpp
 	"utilities.h"
 
+1454651543 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\photosphere.cpp
+	"PhotoSphere.h"
+	"ErrorHandler.h"
+

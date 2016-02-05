@@ -49,6 +49,7 @@
 			<Add directory="../../ThirdParty/glm" />
 			<Add directory="../../ThirdParty/XMP/include" />
 			<Add directory="../../Utilities" />
+			<Add directory="include" />
 		</Compiler>
 		<Linker>
 			<Add option="-lopengl32" />
@@ -74,16 +75,10 @@
 			<Add directory="../../ThirdParty/glew/lib" />
 			<Add directory="../../ThirdParty/XMP/libraries" />
 		</Linker>
-		<Unit filename="ErrorHandler.h" />
-		<Unit filename="PhotoSphere.cpp" />
-		<Unit filename="PhotoSphere.h" />
-		<Unit filename="PhotoSphereProperty.cpp" />
-		<Unit filename="PhotoSphereProperty.h" />
-		<Unit filename="Utilities.cpp" />
-		<Unit filename="Utilities.h" />
-		<Unit filename="Window.h" />
-		<Unit filename="XMP_config.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/PhotoSphere.cpp" />
+		<Unit filename="src/PhotoSphereProperty.cpp" />
+		<Unit filename="src/Utilities.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />
