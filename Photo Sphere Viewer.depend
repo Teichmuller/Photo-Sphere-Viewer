@@ -200,14 +200,15 @@
 	<iostream>
 	"XMP_config.h"
 
-1454558715 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\main.cpp
+1454651409 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\main.cpp
 	<GL/glew.h>
-	<GL/freeglut.h>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<cmath>
-	"PhotoSphere.h"
-	"PhotoSphereProperty.h"
+	<FreeGLUTDemoWindow.h>
+	<PhotoSphere.h>
+	<PhotoSphereProperty.h>
+	<ErrorHandler.h>
 
 1454044479 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\xmp_config.h
 	<string>
@@ -299,7 +300,7 @@
 1418852502 h:\mydata\mydocuments\code\thirdparty\xmp\include\txmpfiles.hpp
 	"XMP_IO.hpp"
 
-1454224930 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\utilities.h
+1454646155 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\utilities.h
 	<iostream>
 	"XMP_config.h"
 
@@ -315,8 +316,9 @@
 	<glm/glm.hpp>
 	<glm/gtc/type_ptr.hpp>
 
-1454559093 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphere.cpp
+1454646078 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphere.cpp
 	"PhotoSphere.h"
+	"ErrorHandler.h"
 
 1452827267 h:\mydata\mydocuments\code\utilities\gl\buffer.h
 	<iostream>
@@ -750,7 +752,7 @@
 	<wchar.h>
 	<inttypes.h>
 
-1454224799 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphereproperty.h
+1454646077 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphereproperty.h
 	"XMP_config.h"
 	"Utilities.h"
 	<string>
@@ -796,8 +798,9 @@
 1424014283 h:\mydata\mydocuments\code\thirdparty\glm\glm\gtc\type_ptr.inl
 	<cstring>
 
-1454225223 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphereproperty.cpp
+1454646100 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\photosphereproperty.cpp
 	"PhotoSphereProperty.h"
+	"ErrorHandler.h"
 
 1066732914 h:\mydata\mydocuments\code\thirdparty\freeglut\include\gl\freeglut.h
 	"freeglut_std.h"
@@ -1355,5 +1358,66 @@
 	"PhotoSphereProperty.h"
 
 1454339787 source:c:\users\sdl\documents\code\examples\photo-sphere-viewer\utilities.cpp
+	"utilities.h"
+
+1454645020 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\window.h
+	<iostream>
+	<string>
+	"ErrorHandler.h"
+	<GL/freeglut.h>
+
+1454645708 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\errorhandler.h
+	<iostream>
+	<string>
+	<queue>
+	<map>
+
+1454651031 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\window.h
+	<string>
+
+1454284901 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\photosphere.h
+	"PhotoSphereProperty.h"
+	<fstream>
+	<string>
+	<vector>
+	<GL/buffer.h>
+	<GL/shader.h>
+	<GL/texture.h>
+	<GL/utilities.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1454646077 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\photosphereproperty.h
+	"XMP_config.h"
+	"Utilities.h"
+	<string>
+
+1454044479 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\xmp_config.h
+	<string>
+	<XMP.incl_cpp>
+	<XMP.hpp>
+
+1454646187 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\utilities.h
+	<iostream>
+	"XMP_config.h"
+
+1454645708 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\errorhandler.h
+	<iostream>
+	<string>
+	<queue>
+	<map>
+
+1454651489 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\freeglutdemowindow.h
+	<iostream>
+	<string>
+	<ErrorHandler.h>
+	<Window.h>
+	<GL/freeglut.h>
+
+1454646100 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\photosphereproperty.cpp
+	"PhotoSphereProperty.h"
+	"ErrorHandler.h"
+
+1454646189 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\utilities.cpp
 	"utilities.h"
 

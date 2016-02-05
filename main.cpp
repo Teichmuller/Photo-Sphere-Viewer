@@ -5,13 +5,14 @@
 #include <glm/gtc/matrix_transform.hpp>
 #include <cmath>
 
-#include "Window.h"
-#include "PhotoSphere.h"
-#include "PhotoSphereProperty.h"
-
+#include <FreeGLUTDemoWindow.h>
+#include <PhotoSphere.h>
+#include <PhotoSphereProperty.h>
+#include <ErrorHandler.h>
 
 using namespace glm;
 
+FreeGLUTDemoWindow *MainWindow;
 PhotoSphere *ps;
 
 mat4 projection(1);
@@ -193,42 +194,40 @@ void Specialkey(int key, int x, int y)
     ApplyTransform();
 }
 
-void Init(const string &filename)
+bool Init(const string &filename)
 {
     ps = PhotoSphere::FromFile(filename, 104, 52);
-    int value;
-    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &value);
+    COND_ERROR_HANDLE_FALSE(ps != nullptr, "Failed to create class PhotoSphere!", NOACTION)
+//    int value;
+//    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &value);
 
     glEnable(GL_DEPTH_TEST);
     //glDisable(GL_CULL_FACE);
+    return true;
+}
+
+void Dispose()
+{
+    SAFE_DELETE(ps)
+    SAFE_DELETE(MainWindow)
 }
 
 int main(int argc, char **argv)
 {
-    if (argc < 2)
-    {
-        cout << "Usage: PhotoSphereViewer filename" << endl;
-        return 0;
-    }
+    COND_ERROR_HANDLE_RET(argc > 1, "Usage: PhotoSphereViewer filename", NOACTION, 0);
     string filename(argv[1]);
 
-    FreeGLUTWindowCreationArgs args;
+    FreeGLUTDemoWindowCreationArgs args;
     args.pargc = &argc;
     args.argv = argv;
     args.title = "Photo Sphere Viewer";
     args.width = 800;
     args.height = 600;
-    FreeGLUTWindow *MainWindow = Window::Create<FreeGLUTWindow>(args);
+    MainWindow = Window::Create<FreeGLUTDemoWindow>(args);
 
+    COND_ERROR_HANDLE_RET(glewInit() == GLEW_OK, "GLEW initialization failed!", Dispose, 0);
 
-    GLenum msg = glewInit();
-    if (msg != GLEW_OK)
-    {
-        cout << "glew initialization failed!" << endl;
-        exit(0);
-    }
-
-    Init(filename);
+    COND_ERROR_HANDLE_EXIT(Init(filename), "Initialzation failed!", Dispose, 0);
 
     glutReshapeFunc(Reshape);
     glutIdleFunc(Idle);
@@ -239,7 +238,8 @@ int main(int argc, char **argv)
     glutSpecialFunc(Specialkey);
 
     MainWindow->MainLoop();
-    delete ps;
+
+    Dispose();
     return 0;
 }
 
