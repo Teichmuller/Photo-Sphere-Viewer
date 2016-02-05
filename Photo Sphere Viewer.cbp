@@ -11,7 +11,7 @@
 				<Option object_output="obj/Debug/" />
 				<Option type="1" />
 				<Option compiler="gcc" />
-				<Option parameters="../assets/PhotoSphereTestImage2.jpg" />
+				<Option parameters="../assets/PhotoSphereTestImage.jpg" />
 				<Compiler>
 					<Add option="-std=c++11" />
 					<Add option="-g" />
@@ -72,12 +72,14 @@
 			<Add directory="../../ThirdParty/glew/lib" />
 			<Add directory="../../ThirdParty/XMP/libraries" />
 		</Linker>
+		<Unit filename="ErrorHandler.h" />
 		<Unit filename="PhotoSphere.cpp" />
 		<Unit filename="PhotoSphere.h" />
 		<Unit filename="PhotoSphereProperty.cpp" />
 		<Unit filename="PhotoSphereProperty.h" />
 		<Unit filename="Utilities.cpp" />
 		<Unit filename="Utilities.h" />
+		<Unit filename="Window.h" />
 		<Unit filename="XMP_config.h" />
 		<Unit filename="main.cpp" />
 		<Extensions>

@@ -1,11 +1,11 @@
 /// https://developers.google.com/streetview/spherical-metadata
 
 #include <GL/glew.h>
-#include <GL/freeglut.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <cmath>
 
+#include "Window.h"
 #include "PhotoSphere.h"
 #include "PhotoSphereProperty.h"
 
@@ -47,7 +47,7 @@ void ApplyTransform()
 //    cout << "theta = " << rotation.t / pi<float>() * 180 << endl;
 //    cout << "phi = " << rotation.s / pi<float>() * 180 << endl;
 //    cout << "z = " << z_angle / pi<float>() * 180 << endl;
-    cout << endl;
+//    cout << endl;
 //    transform = scale(transform, vec3(10, 10, 10));
     ps->GetShader().Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "transform");
@@ -195,7 +195,7 @@ void Specialkey(int key, int x, int y)
 
 void Init(const string &filename)
 {
-    ps = PhotoSphere::FromFile(filename, 26, 13);
+    ps = PhotoSphere::FromFile(filename, 104, 52);
     int value;
     glGetIntegerv(GL_MAX_TEXTURE_SIZE, &value);
 
@@ -211,10 +211,15 @@ int main(int argc, char **argv)
         return 0;
     }
     string filename(argv[1]);
-    glutInit(&argc, argv);
-    glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE);
-    glutInitWindowSize(800, 600);
-    glutCreateWindow("Photo Sphere Viewer");
+
+    FreeGLUTWindowCreationArgs args;
+    args.pargc = &argc;
+    args.argv = argv;
+    args.title = "Photo Sphere Viewer";
+    args.width = 800;
+    args.height = 600;
+    FreeGLUTWindow *MainWindow = Window::Create<FreeGLUTWindow>(args);
+
 
     GLenum msg = glewInit();
     if (msg != GLEW_OK)
@@ -233,8 +238,7 @@ int main(int argc, char **argv)
     glutMouseWheelFunc(MouseWheel);
     glutSpecialFunc(Specialkey);
 
-
-    glutMainLoop();
+    MainWindow->MainLoop();
     delete ps;
     return 0;
 }

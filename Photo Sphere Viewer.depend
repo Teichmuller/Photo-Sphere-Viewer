@@ -97,9 +97,14 @@
 	<iostream>
 	<XMP.hpp>
 
-1454115856 source:c:\users\sdl\documents\code\examples\photo-sphere-viewer\main.cpp
-	"XMP_config.h"
-	"utilities.h"
+1454619581 source:c:\users\sdl\documents\code\examples\photo-sphere-viewer\main.cpp
+	<GL/glew.h>
+	<GL/freeglut.h>
+	<glm/glm.hpp>
+	<glm/gtc/matrix_transform.hpp>
+	<cmath>
+	"PhotoSphere.h"
+	"PhotoSphereProperty.h"
 
 1454113928 c:\users\sdl\documents\code\examples\photo-sphere-viewer\xmp_config.h
 	<string>
@@ -191,9 +196,9 @@
 1418852502 c:\users\sdl\documents\code\thirdparty\xmp\include\txmpfiles.hpp
 	"XMP_IO.hpp"
 
-1454113928 c:\users\sdl\documents\code\examples\photo-sphere-viewer\utilities.h
+1454444915 c:\users\sdl\documents\code\examples\photo-sphere-viewer\utilities.h
 	<iostream>
-	<XMP.hpp>
+	"XMP_config.h"
 
 1454558715 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\main.cpp
 	<GL/glew.h>
@@ -824,4 +829,531 @@
 	"../geometric.hpp"
 	"../trigonometric.hpp"
 	"../matrix.hpp"
+
+1439203641 c:\users\sdl\documents\code\thirdparty\glew\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<Availability.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1066732914 c:\users\sdl\documents\code\thirdparty\freeglut\include\gl\freeglut.h
+	"freeglut_std.h"
+	"freeglut_ext.h"
+
+1413559704 c:\users\sdl\documents\code\thirdparty\freeglut\include\gl\freeglut_std.h
+	<windows.h>
+	<EGL/egl.h>
+	<GLES/gl.h>
+	<GLES2/gl2.h>
+	<OpenGL/gl.h>
+	<OpenGL/glu.h>
+	<GL/gl.h>
+	<GL/glu.h>
+	<stdlib.h>
+
+1413559704 c:\users\sdl\documents\code\thirdparty\freeglut\include\gl\freeglut_ext.h
+	<stdarg.h>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\glm.hpp
+	"detail/_fixes.hpp"
+	<cmath>
+	<climits>
+	<cfloat>
+	<limits>
+	<cassert>
+	"fwd.hpp"
+	"vec2.hpp"
+	"vec3.hpp"
+	"vec4.hpp"
+	"mat2x2.hpp"
+	"mat2x3.hpp"
+	"mat2x4.hpp"
+	"mat3x2.hpp"
+	"mat3x3.hpp"
+	"mat3x4.hpp"
+	"mat4x2.hpp"
+	"mat4x3.hpp"
+	"mat4x4.hpp"
+	"trigonometric.hpp"
+	"exponential.hpp"
+	"common.hpp"
+	"packing.hpp"
+	"geometric.hpp"
+	"matrix.hpp"
+	"vector_relational.hpp"
+	"integer.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\_fixes.hpp
+	<cmath>
+
+1438461336 c:\users\sdl\documents\code\thirdparty\glm\glm\fwd.hpp
+	"detail/type_int.hpp"
+	"detail/type_float.hpp"
+	"detail/type_vec.hpp"
+	"detail/type_mat.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_int.hpp
+	"setup.hpp"
+	<type_traits>
+	<cstdint>
+
+1441566334 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\setup.hpp
+	<cassert>
+	<cstddef>
+	<cuda.h>
+	<intrin.h>
+	<immintrin.h>
+	<immintrin.h>
+	<smmintrin.h>
+	<pmmintrin.h>
+	<emmintrin.h>
+	<__config>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_float.hpp
+	"setup.hpp"
+
+1438461503 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec.hpp
+	"precision.hpp"
+	"type_int.hpp"
+
+1441034960 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\precision.hpp
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat.hpp
+	"precision.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\vec2.hpp
+	"detail/type_vec2.hpp"
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec2.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec2.inl"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\_swizzle.hpp
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\_swizzle_func.hpp
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec2.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\vec3.hpp
+	"detail/type_vec3.hpp"
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec3.hpp
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec3.inl"
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec3.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\vec4.hpp
+	"detail/type_vec4.hpp"
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec4.hpp
+	"setup.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec4.inl"
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec4.inl
+	"type_vec4_sse2.inl"
+	"type_vec4_avx.inl"
+	"type_vec4_avx2.inl"
+
+1441035292 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec4_sse2.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec4_avx.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec4_avx2.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat2x2.hpp
+	"detail/type_mat2x2.hpp"
+
+1440860626 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat2x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x2.inl"
+
+1438467208 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat2x2.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat2x3.hpp
+	"detail/type_mat2x3.hpp"
+
+1438464869 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat2x3.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x3.inl"
+
+1438467137 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat2x3.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat2x4.hpp
+	"detail/type_mat2x4.hpp"
+
+1438464825 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat2x4.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat2x4.inl"
+
+1438466973 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat2x4.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat3x2.hpp
+	"detail/type_mat3x2.hpp"
+
+1438464685 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat3x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x2.inl"
+
+1438466818 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat3x2.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat3x3.hpp
+	"detail/type_mat3x3.hpp"
+
+1438464627 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat3x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x3.inl"
+
+1438466702 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat3x3.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat3x4.hpp
+	"detail/type_mat3x4.hpp"
+
+1438464495 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat3x4.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat3x4.inl"
+
+1438466591 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat3x4.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat4x2.hpp
+	"detail/type_mat4x2.hpp"
+
+1438464417 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat4x2.hpp
+	"../fwd.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x2.inl"
+
+1438466417 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat4x2.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat4x3.hpp
+	"detail/type_mat4x3.hpp"
+
+1438464358 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat4x3.hpp
+	"../fwd.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x3.inl"
+
+1438466932 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat4x3.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\mat4x4.hpp
+	"detail/type_mat4x4.hpp"
+
+1438464299 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat4x4.hpp
+	"../fwd.hpp"
+	"type_vec4.hpp"
+	"type_mat.hpp"
+	<limits>
+	<cstddef>
+	"type_mat4x4.inl"
+
+1438466395 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_mat4x4.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\trigonometric.hpp
+	"detail/func_trigonometric.hpp"
+
+1441048237 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_trigonometric.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_trigonometric.inl"
+
+1441048846 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_trigonometric.inl
+	"_vectorize.hpp"
+	<cmath>
+	<limits>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\_vectorize.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec1.hpp
+	"../fwd.hpp"
+	"type_vec.hpp"
+	"_swizzle.hpp"
+	"_swizzle_func.hpp"
+	<cstddef>
+	"type_vec1.inl"
+
+1441564589 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_vec1.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\exponential.hpp
+	"detail/func_exponential.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_exponential.hpp
+	"type_vec1.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	<cmath>
+	"func_exponential.inl"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_exponential.inl
+	"func_vector_relational.hpp"
+	"_vectorize.hpp"
+	<limits>
+	<cmath>
+	<cassert>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_vector_relational.hpp
+	"precision.hpp"
+	"setup.hpp"
+	"func_vector_relational.inl"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_vector_relational.inl
+	<limits>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\common.hpp
+	"detail/func_common.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_common.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"type_int.hpp"
+	"_fixes.hpp"
+	"func_common.inl"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_common.inl
+	"func_vector_relational.hpp"
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"_vectorize.hpp"
+	<limits>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\packing.hpp
+	"detail/func_packing.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_packing.hpp
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"func_packing.inl"
+
+1437258517 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_packing.inl
+	"func_common.hpp"
+	"type_half.hpp"
+	"../fwd.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_half.hpp
+	"setup.hpp"
+	"type_half.inl"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\type_half.inl
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\geometric.hpp
+	"detail/func_geometric.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_geometric.hpp
+	"type_vec3.hpp"
+	"func_geometric.inl"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_geometric.inl
+	"func_exponential.hpp"
+	"func_common.hpp"
+	"type_vec2.hpp"
+	"type_vec4.hpp"
+	"type_float.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\matrix.hpp
+	"detail/func_matrix.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_matrix.hpp
+	"../detail/precision.hpp"
+	"../detail/setup.hpp"
+	"../detail/type_mat.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	"func_matrix.inl"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_matrix.inl
+	"../geometric.hpp"
+	<limits>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\vector_relational.hpp
+	"detail/func_vector_relational.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\integer.hpp
+	"detail/func_integer.hpp"
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_integer.hpp
+	"setup.hpp"
+	"precision.hpp"
+	"func_common.hpp"
+	"func_vector_relational.hpp"
+	"func_integer.inl"
+
+1426531503 c:\users\sdl\documents\code\thirdparty\glm\glm\detail\func_integer.inl
+	"type_vec2.hpp"
+	"type_vec3.hpp"
+	"type_vec4.hpp"
+	"type_int.hpp"
+	"_vectorize.hpp"
+	<intrin.h>
+	<limits>
+
+1441034656 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\matrix_transform.hpp
+	"../mat4x4.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"matrix_transform.inl"
+
+1441047854 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\constants.hpp
+	"../detail/setup.hpp"
+	"constants.inl"
+
+1441049094 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\constants.inl
+	<limits>
+
+1426531269 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\matrix_transform.inl
+	"../geometric.hpp"
+	"../trigonometric.hpp"
+	"../matrix.hpp"
+
+1454444915 c:\users\sdl\documents\code\examples\photo-sphere-viewer\photosphere.h
+	"PhotoSphereProperty.h"
+	<fstream>
+	<string>
+	<vector>
+	<GL/buffer.h>
+	<GL/shader.h>
+	<GL/texture.h>
+	<GL/utilities.h>
+	<glm/glm.hpp>
+	<glm/gtc/type_ptr.hpp>
+
+1454339787 c:\users\sdl\documents\code\examples\photo-sphere-viewer\photosphereproperty.h
+	"XMP_config.h"
+	"Utilities.h"
+	<string>
+
+1452827267 c:\users\sdl\documents\code\utilities\gl\buffer.h
+	<iostream>
+	<vector>
+	<GL/glew.h>
+	<glm/glm.hpp>
+
+1450505423 c:\users\sdl\documents\code\utilities\gl\shader.h
+	<string>
+	<fstream>
+	<sstream>
+	<iostream>
+	<GL/glew.h>
+
+1454284211 c:\users\sdl\documents\code\utilities\gl\texture.h
+	<GL/glew.h>
+	<GL/utilities.h>
+
+1454283494 c:\users\sdl\documents\code\utilities\gl\utilities.h
+	<iostream>
+	<FreeImage.h>
+	<GL/glew.h>
+	<glm/glm.hpp>
+
+1441298432 c:\users\sdl\documents\code\thirdparty\freeimage\include\freeimage.h
+	<wchar.h>
+	<inttypes.h>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\type_ptr.hpp
+	"../gtc/quaternion.hpp"
+	"../vec2.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../mat2x2.hpp"
+	"../mat2x3.hpp"
+	"../mat2x4.hpp"
+	"../mat3x2.hpp"
+	"../mat3x3.hpp"
+	"../mat3x4.hpp"
+	"../mat4x2.hpp"
+	"../mat4x3.hpp"
+	"../mat4x4.hpp"
+	<cstring>
+	"type_ptr.inl"
+
+1438467486 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\quaternion.hpp
+	"../mat3x3.hpp"
+	"../mat4x4.hpp"
+	"../vec3.hpp"
+	"../vec4.hpp"
+	"../gtc/constants.hpp"
+	"quaternion.inl"
+
+1438468400 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\quaternion.inl
+	"../trigonometric.hpp"
+	"../geometric.hpp"
+	"../exponential.hpp"
+	<limits>
+
+1424014283 c:\users\sdl\documents\code\thirdparty\glm\glm\gtc\type_ptr.inl
+	<cstring>
+
+1454620534 source:c:\users\sdl\documents\code\examples\photo-sphere-viewer\photosphere.cpp
+	"PhotoSphere.h"
+
+1454339787 source:c:\users\sdl\documents\code\examples\photo-sphere-viewer\photosphereproperty.cpp
+	"PhotoSphereProperty.h"
+
+1454339787 source:c:\users\sdl\documents\code\examples\photo-sphere-viewer\utilities.cpp
+	"utilities.h"
 

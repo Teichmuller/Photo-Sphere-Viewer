@@ -71,7 +71,7 @@ void PhotoSphere::Draw()
     glUniform1i(glGetUniformLocation(m_shader->Program, "Texture"), 0);
     glBindVertexArray(*m_vao);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, *m_ibo);
-    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
+//    glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
     glDrawElements(GL_TRIANGLES, m_ibo->GetCount(), GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
