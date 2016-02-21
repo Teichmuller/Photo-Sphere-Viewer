@@ -113,9 +113,9 @@ void PhotoSphere::GenerateSphere(uint32_t hslice, uint32_t vslice, vector<vec3> 
             double h_rad = h * (h_rad_end - h_rad_start) / hslice;
             /// Pre-generate cartesian coordinates, reduce energy consumption and protect environment :)
             double sv = sin(v_rad), cv = cos(v_rad), sh = sin(h_rad), ch = cos(h_rad);
-            vec3 cartesian(cv * ch, sv, cv * sh);
+            vec3 cartesian(cv * sh, sv, cv * ch);
             vertices.push_back(cartesian);
-            vec3 uv_coord(h_rad / (h_rad_end - h_rad_start), (v_rad - v_rad_end) / (v_rad_start - v_rad_end), 0);
+            vec3 uv_coord((h_rad_end - h_rad) / (h_rad_end - h_rad_start), (v_rad - v_rad_end) / (v_rad_start - v_rad_end), 0);
             texCoords.push_back(uv_coord);
 //            dump << counter << ": " << cartesian.x << " " << cartesian.y << " " << cartesian.z << endl;
 //            dump << counter << ": " << uv_coord.x << " " << uv_coord.y << endl;

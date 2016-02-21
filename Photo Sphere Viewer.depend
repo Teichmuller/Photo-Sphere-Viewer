@@ -200,8 +200,9 @@
 	<iostream>
 	"XMP_config.h"
 
-1454651409 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\main.cpp
+1456042149 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\main.cpp
 	<GL/glew.h>
+	<GL/wglew.h>
 	<glm/glm.hpp>
 	<glm/gtc/matrix_transform.hpp>
 	<cmath>
@@ -1397,9 +1398,10 @@
 	<XMP.incl_cpp>
 	<XMP.hpp>
 
-1454646187 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\utilities.h
+1456025164 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\utilities.h
 	<iostream>
-	"XMP_config.h"
+	<XMP_config.h>
+	<glm/glm.hpp>
 
 1454645708 h:\mydata\mydocuments\code\examples\photo-sphere-viewer\include\errorhandler.h
 	<iostream>
@@ -1418,10 +1420,14 @@
 	"PhotoSphereProperty.h"
 	"ErrorHandler.h"
 
-1454646189 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\utilities.cpp
-	"utilities.h"
+1456028261 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\utilities.cpp
+	"Utilities.h"
+	<glm/gtc/matrix_transform.hpp>
 
-1454651543 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\photosphere.cpp
+1456033766 source:h:\mydata\mydocuments\code\examples\photo-sphere-viewer\src\photosphere.cpp
 	"PhotoSphere.h"
 	"ErrorHandler.h"
+
+1439203641 h:\mydata\mydocuments\code\thirdparty\glew\include\gl\wglew.h
+	<windows.h>
 

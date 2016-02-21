@@ -1,4 +1,4 @@
-/// https://developers.google.com/streetview/spherical-metadata
+/// Reference: https://developers.google.com/streetview/spherical-metadata
 
 #include <GL/glew.h>
 #include <GL/wglew.h>
@@ -18,39 +18,33 @@ PhotoSphere *ps;
 
 mat4 projection(1);
 mat4 transform(1);
-vec3 rotation(0);
+mat4 Tcs;
+
+vec3 rotation(pi<float>(), -pi<float>() / 4, 0);
 vec3 position(0);
-int mx = 0, my = 0;
 vec3 CurrentPos = vec3(0), PrevPos = vec3(0);
+
 int WindowWidth = 800, WindowHeight = 600;
 GLdouble ratio = (float)WindowWidth / (float)WindowHeight;
 bool IsFullScreen = false;
 
 float fovy = quarter_pi<float>();
-float RotateVStep, RotateHStep;
 
 vec3 MouseToSphere(vec2 pos)
 {
     float cx = (pos.x * 2 - WindowWidth) / WindowWidth;
-    float cy = (pos.y * 2 - WindowHeight) / WindowHeight;
-    return vec3(atan(cx * tan(fovy * ratio / 2)), atan(cy * tan(fovy / 2)), 0);//
+    float cy = -(pos.y * 2 - WindowHeight) / WindowHeight;
+    float tan_phi = cx * ratio * tan(fovy / 2);//, phi = atan(tan_phi);
+    float tan_theta = cy * tan(fovy / 2), theta = atan(tan_theta);
+//    float alpha = atan(tan_theta / sqrt(1 + tan_phi * tan_phi));
+    float beta = atan(tan_phi / sqrt(1 + tan_theta * tan_theta));
+    /// minus stands for space rotation rather than basis rotation
+    return vec3(-beta, theta, 0);
 }
+
 
 void ApplyTransform()
 {
-    transform = mat4(1);
-    transform = translate(transform, position);
-//    float cot_H = 1 / tan(rotation.s), cot_V = 1 / tan(rotation.t), ch2 = cot_H * cot_H, cv2 = cot_V * cot_V;
-//    float z_angle = half_pi<float>() - acos(sqrt(1 / (1 + cv2 + cv2 * ch2)));
-//    if ((rotation.t > 0 && rotation.s > pi<float>()) || (rotation.t < 0 && rotation.s < pi<float>())) z_angle *= -1;
-//    transform = rotate(transform, z_angle, vec3(0, 0, 1));
-    transform = rotate(transform, rotation.t, vec3(1, 0, 0));
-    transform = rotate(transform, rotation.s, vec3(0, 1, 0));
-//    cout << "theta = " << rotation.t / pi<float>() * 180 << endl;
-//    cout << "phi = " << rotation.s / pi<float>() * 180 << endl;
-//    cout << "z = " << z_angle / pi<float>() * 180 << endl;
-//    cout << endl;
-//    transform = scale(transform, vec3(10, 10, 10));
     ps->GetShader().Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "transform");
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
@@ -65,6 +59,7 @@ void ApplyProjection()
     ps->GetShader().Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "projection");
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(projection));
+    glutPostRedisplay();
 }
 
 void Reshape(int width, int height)
@@ -73,42 +68,13 @@ void Reshape(int width, int height)
         height = 1;
     WindowWidth = width;
     WindowHeight = height;
-    RotateHStep = fovy / height;
-    RotateVStep = RotateHStep;
+    ratio = (float)WindowWidth / (float)WindowHeight;
 
     glViewport(0, 0, width, height);
 
     ApplyProjection();
     ApplyTransform();
 }
-
-//void Idle()
-//{
-//    static const int interval[] = {17, 16, 17}, nextState[] = {1, 2, 0};
-//    static int prevTime = 0, currentTime, currentState = 0, jump, difference;
-//    currentTime = glutGet(GLUT_ELAPSED_TIME);
-//    difference = currentTime - prevTime;
-//    if (difference > interval[currentState])
-//    {
-//        glClearColor(0.f, 0.f, 0.f, 1.0f);
-//        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//
-////        rotation += vec3(0.01, 0., 0);
-////        ApplyTransform();
-//        ps->Draw();
-//
-//        glutSwapBuffers();
-//
-//        jump = difference % 50;
-//        prevTime += difference - jump;
-//        while (jump > interval[currentState])
-//        {
-//            jump -= interval[currentState];
-//            prevTime += interval[currentState];
-//            currentState = nextState[currentState];
-//        }
-//    }
-//}
 
 void Display()
 {
@@ -128,31 +94,34 @@ void Mouse(int button, int state, int x, int y)
 	{
 		if (state == GLUT_DOWN)
 		{
-//			mx = x;
-//			my = y;
-            CurrentPos = MouseToSphere(vec2(x, y));
+            PrevPos = MouseToSphere(vec2(x, y));
+            Tcs = AnglesToMat(-PrevPos);
+            Tcs = Tcs * transform;
 		}
-		else
+		else if (state == GLUT_UP)
 		{
+
 		}
 	}
 }
 
 void Motion(int x, int y)
 {
-//    mx = x;
-//    my = y;
-    PrevPos = CurrentPos;
     CurrentPos = MouseToSphere(vec2(x, y));
-    rotation -= (CurrentPos - PrevPos);
-    if (rotation.t > half_pi<float>())
-        rotation.t = half_pi<float>();
-    if (rotation.t < -half_pi<float>())
-        rotation.t = -half_pi<float>();
-    if (rotation.s > two_pi<float>())
-        rotation.s -= two_pi<float>();
-    if (rotation.s < 0)
-        rotation.s += two_pi<float>();
+    mat4 Tsc = inverse(AnglesToMat(-CurrentPos));
+    PrevPos = CurrentPos;
+
+//    vec3 prev_rotation = rotation;
+
+    mat4 toBeTransform = Tsc * Tcs;
+    rotation = MatToAngles(toBeTransform);
+    transform = AnglesToMat(rotation);
+//    cout << "CurrentPos: " << CurrentPos / pi<float>() * 180.f << endl;
+//    cout << "rotation: " << rotation / pi<float>() * 180.f << endl;
+//    cout << "transform: " << endl << transform;
+//    cout << "toBeTransform: " << endl << toBeTransform;
+//    cout << "delta_rot: " << (rotation - prev_rotation) / pi<float>() * 180.f << endl;
+//    cout << "delta_pos: " << (CurrentPos - PrevPos) / pi<float>() * 180.f << endl;
     ApplyTransform();
 }
 
@@ -171,23 +140,6 @@ void MouseWheel(int wheel, int direction, int x, int y)
 
 void Specialkey(int key, int x, int y)
 {
-    static float step = 0.01;
-	if (key == GLUT_KEY_LEFT)
-	{
-        rotation.s -= step;
-	}
-	if (key == GLUT_KEY_RIGHT)
-	{
-        rotation.s += step;
-	}
-	if (key == GLUT_KEY_UP)
-	{
-        rotation.t += step;
-	}
-	if (key == GLUT_KEY_DOWN)
-	{
-        rotation.t -= step;
-	}
 	if (key == GLUT_KEY_F1)
     {
         if (IsFullScreen)
@@ -239,7 +191,7 @@ int main(int argc, char **argv)
 
     COND_ERROR_HANDLE_RET(glewInit() == GLEW_OK, "GLEW initialization failed!", Dispose, 0);
 
-    COND_ERROR_HANDLE_EXIT(Init(filename), "Initialzation failed!", Dispose, 0);
+    COND_ERROR_HANDLE_RET(Init(filename), "Initialzation failed!", Dispose, 0);
 
     glutReshapeFunc(Reshape);
     // Deregister idle function to reduce CPU time
