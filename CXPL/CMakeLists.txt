@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.4)
+project(CXPL)
+include_directories("include")
+add_subdirectory(src)
+add_library(CXPL STATIC $<TARGET_OBJECTS:utilities>)
