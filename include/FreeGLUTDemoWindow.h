@@ -1,49 +1,37 @@
-#ifndef __FREEGLUTDEMOWINDOW_H__
-#define __FREEGLUTDEMOWINDOW_H__
+#ifndef __PHOTOSPHEREVIEWER_FREEGLUTDEMOWINDOW_H__
+#define __PHOTOSPHEREVIEWER_FREEGLUTDEMOWINDOW_H__
 
 #include <iostream>
 #include <string>
-#include <ErrorHandler.h>
-#include <Window.h>
+#include <memory>
 #include <GL/freeglut.h>
 
-struct FreeGLUTDemoWindowCreationArgs : WindowCreationArgs
+#include <ErrorHandler.h>
+#include <Window.h>
+
+using namespace std;
+
+namespace PhotoSphereViewer
 {
-    int *pargc;
-    char **argv;
-    unsigned int displayMode = GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE;
-};
-
-class FreeGLUTDemoWindow : public Window
-{
-public:
-    static FreeGLUTDemoWindow *Create(FreeGLUTDemoWindowCreationArgs &args)
+    struct FreeGLUTDemoWindowCreationArgs : WindowCreationArgs
     {
-        if (m_instance == nullptr)
-        {
-            FreeGLUTDemoWindow *ret = new FreeGLUTDemoWindow();
-            COND_ERROR_HANDLE_NULLPTR(ret != nullptr, "Creating FreeGLUT window failed!", NOACTION)
+        int *pargc;
+        char **argv;
+        unsigned int displayMode = GLUT_DOUBLE | GLUT_RGBA | GLUT_DEPTH | GLUT_MULTISAMPLE;
+    };
 
-            glutInit(args.pargc, args.argv);
-            glutInitDisplayMode(args.displayMode);
-            glutInitWindowSize(args.width, args.height);
-            ret->m_id = glutCreateWindow(args.title.data());
-
-            m_instance = ret;
-        }
-        return m_instance;
-    }
-    virtual ~FreeGLUTDemoWindow() {};
-
-    void MainLoop()
+    class FreeGLUTDemoWindow : public Window
     {
-        glutMainLoop();
-    }
-private:
-    static FreeGLUTDemoWindow *m_instance;
-    int m_id;
-    FreeGLUTDemoWindow() {}
-};
-FreeGLUTDemoWindow *FreeGLUTDemoWindow::m_instance = nullptr;
+    public:
+        static shared_ptr<FreeGLUTDemoWindow> Create(FreeGLUTDemoWindowCreationArgs &args);
+        virtual ~FreeGLUTDemoWindow();
+
+        void MainLoop();
+    //private:
+        static shared_ptr<FreeGLUTDemoWindow> m_instance;
+        int m_id;
+        FreeGLUTDemoWindow();
+    };
+}
 
 #endif // FREEGLUTDEMOWINDOW_H

@@ -1,41 +1,44 @@
-#ifndef __PSV_DEMO_UTILITIES_H__
-#define __PSV_DEMO_UTILITIES_H__
+#ifndef __PHOTOSPHEREVIEWER_UTILITIES_H__
+#define __PHOTOSPHEREVIEWER_UTILITIES_H__
 
 #include <iostream>
-#include <XMP_config.h>
+#include <exiv2/exiv2.hpp>
 #include <glm/glm.hpp>
-
 
 using namespace std;
 using namespace glm;
 
-
-#define SAFE_DELETE(p) {if ((p) != nullptr) delete (p);}
-
-ostream &operator<<(ostream &os, XMP_DateTime const &d);
-
-enum XMPPropertyType
+namespace PhotoSphereViewer
 {
-    Bool,
-    Int,
-    Int64,
-    Float,
-    Date,
-    String
-};
+    #define SAFE_DELETE(p) {if ((p) != nullptr) delete (p);}
 
-struct XMPProperty
-{
-    string Name;
-    XMPPropertyType Type;
-    bool IsRequired;
-};
+    enum XMPPropertyType
+    {
+        Bool,
+        Int,
+        Float,
+        Date,
+        String
+    };
 
-//vec3 SphericalToCartesian(const vec3 &sp);
-ostream &operator<<(ostream &os, const vec3 &v);
-ostream &operator<<(ostream &os, const mat4 &m);
-vec3 MatToAngles(mat4 trans);
-mat4 AnglesToMat(vec3 angles);
+    struct XMPProperty
+    {
+        string Name;
+        XMPPropertyType Type;
+        bool IsRequired;
+    };
+
+    bool GetXMPBoolValue(const Exiv2::XmpData &data, const XMPProperty &property, bool *ret);
+    bool GetXMPIntValue(const Exiv2::XmpData &data, const XMPProperty &property, long *ret);
+    bool GetXMPFloatValue(const Exiv2::XmpData &data, const XMPProperty &property, float *ret);
+    bool GetXMPStringValue(const Exiv2::XmpData &data, const XMPProperty &property, string *ret);
+
+    //vec3 SphericalToCartesian(const vec3 &sp);
+    ostream &operator<<(ostream &os, const vec3 &v);
+    ostream &operator<<(ostream &os, const mat4 &m);
+    vec3 MatToAngles(mat4 trans);
+    mat4 AnglesToMat(vec3 angles);
+}
 
 
 #endif // __UTILITIES_H__

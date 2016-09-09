@@ -1,23 +1,26 @@
-/// Reference: https://developers.google.com/streetview/spherical-metadata
 
 #include <GL/glew.h>
 #include <GL/wglew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <cmath>
+#include <iostream>
 
 #include <FreeGLUTDemoWindow.h>
 #include <PhotoSphere.h>
 #include <PhotoSphereProperty.h>
 #include <ErrorHandler.h>
+#include <exiv2/exiv2.hpp>
 
+using namespace std;
 using namespace glm;
+using namespace PhotoSphereViewer;
 
-FreeGLUTDemoWindow *MainWindow;
-PhotoSphere *ps;
+shared_ptr<FreeGLUTDemoWindow> MainWindow;
+shared_ptr<PhotoSphere> ps;
 
 mat4 projection(1);
-mat4 transform(1);
+mat4 transform_mat(1);
 mat4 Tcs;
 
 vec3 rotation(pi<float>(), -pi<float>() / 4, 0);
@@ -47,7 +50,7 @@ void ApplyTransform()
 {
     ps->GetShader().Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "transform");
-    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform));
+    glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform_mat));
     glutPostRedisplay();
 }
 
@@ -96,7 +99,7 @@ void Mouse(int button, int state, int x, int y)
 		{
             PrevPos = MouseToSphere(vec2(x, y));
             Tcs = AnglesToMat(-PrevPos);
-            Tcs = Tcs * transform;
+            Tcs = Tcs * transform_mat;
 		}
 		else if (state == GLUT_UP)
 		{
@@ -115,7 +118,7 @@ void Motion(int x, int y)
 
     mat4 toBeTransform = Tsc * Tcs;
     rotation = MatToAngles(toBeTransform);
-    transform = AnglesToMat(rotation);
+    transform_mat = AnglesToMat(rotation);
 //    cout << "CurrentPos: " << CurrentPos / pi<float>() * 180.f << endl;
 //    cout << "rotation: " << rotation / pi<float>() * 180.f << endl;
 //    cout << "transform: " << endl << transform;
@@ -131,11 +134,24 @@ void MouseWheel(int wheel, int direction, int x, int y)
         fovy /= 2;
     if (direction < 0)
         fovy *= 2;
-    if (fovy < quarter_pi<float>() / 9)
-        fovy = quarter_pi<float>() / 9;
-    if (fovy > quarter_pi<float>())
-        fovy = quarter_pi<float>();
+    if (fovy < quarter_pi<float>() / 16)
+        fovy = quarter_pi<float>() / 16;
+    if (fovy > half_pi<float>())
+        fovy = half_pi<float>();
     ApplyProjection();
+}
+
+void Keyboard(unsigned char key, int x, int y)
+{
+	switch (key)
+    {
+    case 27:
+        glutLeaveMainLoop();
+        break;
+    default:
+        break;
+    }
+    ApplyTransform();
 }
 
 void Specialkey(int key, int x, int y)
@@ -172,15 +188,48 @@ bool Init(const string &filename)
 
 void Dispose()
 {
-    SAFE_DELETE(ps)
-    SAFE_DELETE(MainWindow)
 }
 
 int main(int argc, char **argv)
-{
+{/*
     COND_ERROR_HANDLE_RET(argc > 1, "Usage: PhotoSphereViewer filename", NOACTION, 0);
     string filename(argv[1]);
+*/
+    string filename("TestImage.jpg");
+    /*
+    cout << "Entrying" << endl;
+    const string panoramaImageName("F:/2016-8-12~14 (Kanas)/PANO_20160813_123415.jpg");
+    const string ordinaryImageName("F:/2016-8-12~14 (Kanas)/IMG_20160812_125349.jpg");
+    Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(panoramaImageName);
 
+    COND_ERROR_HANDLE_RET(image.get() != 0, "Open image failed!", NOACTION, 0);
+    cout << "Read successful: " << image.get() << endl;
+
+    image->readMetadata();
+    image->printStructure(cout, Exiv2::kpsXMP);
+
+    Exiv2::XmpData& xmp = image->xmpData();
+    for (auto i = xmp.begin(); i != xmp.end(); i++)
+    {
+        cout << i->key() << ' '
+             << i->count() << ' '
+             << i->size() << ' '
+             << i->toString() << endl;
+    }
+    const string longTestKey("Xmp.GPano.CroppedAreaImageWidthPixels");
+    const string floatTestKey("Xmp.GPano.PoseHeadingDegrees");
+    const string boolTestKey("Xmp.GPano.UsePanoramaViewer");
+    cout << longTestKey << ' ' << xmp[longTestKey].toLong() << endl;
+    cout << floatTestKey << ' ' << xmp[floatTestKey].toFloat() << endl;
+    cout << boolTestKey << ' ' << xmp[boolTestKey].toLong() << endl;
+    shared_ptr<PhotoSphereProperty> ps = PhotoSphereProperty::FromFile(panoramaImageName);
+    cout << ps->m_UsePanoramaViewer << endl;
+    cout << ps->m_ProjectionType << endl;
+    cout << ps->m_CroppedAreaImageWidthPixels << endl;
+    cout << ps->m_PoseHeadingDegrees << endl;
+    */
+
+    cout << "Creating Window..." << endl;
     FreeGLUTDemoWindowCreationArgs args;
     args.pargc = &argc;
     args.argv = argv;
@@ -188,11 +237,18 @@ int main(int argc, char **argv)
     args.width = 800;
     args.height = 600;
     MainWindow = Window::Create<FreeGLUTDemoWindow>(args);
+    cout << "Window created." << endl;
+    cout << "Instance: " << FreeGLUTDemoWindow::m_instance << endl;
+    cout << "ID: " << MainWindow->m_id << endl;
 
+    cout << "Initializing GLEW..." << endl;
     COND_ERROR_HANDLE_RET(glewInit() == GLEW_OK, "GLEW initialization failed!", Dispose, 0);
+    cout << "GLEW initialled." << endl;
 
     COND_ERROR_HANDLE_RET(Init(filename), "Initialzation failed!", Dispose, 0);
 
+    glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
+    cout << "Registering functions..." << endl;
     glutReshapeFunc(Reshape);
     // Deregister idle function to reduce CPU time
 //    glutIdleFunc(Idle);
@@ -200,11 +256,17 @@ int main(int argc, char **argv)
     glutMouseFunc(Mouse);
     glutMotionFunc(Motion);
     glutMouseWheelFunc(MouseWheel);
+    glutKeyboardFunc(Keyboard);
     glutSpecialFunc(Specialkey);
+    cout << "Function registered." << endl;
 
+    cout << "Entering main loop..." << endl;
     MainWindow->MainLoop();
+    cout << "Left main loop." << endl;
 
     Dispose();
+    cout << "Disposed." << endl;
+
     return 0;
 }
 
