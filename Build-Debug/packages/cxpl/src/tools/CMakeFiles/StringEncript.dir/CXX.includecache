@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/src/tools/StringEncript.cpp
+iostream
+-
+iomanip
+-
+string
+-
+

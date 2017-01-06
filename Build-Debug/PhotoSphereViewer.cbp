@@ -1,0 +1,212 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="PhotoSphereViewer"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\cmake\;CMake Files\cmake\Modules\;CMake Files\packages\;CMake Files\packages\cxpl\;CMake Files\packages\cxpl\src\;CMake Files\src\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PhotoSphereViewer">
+				<Option output="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/PhotoSphereViewer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/PUBLIC"/>
+					<Add directory="C:/msys64/mingw64/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include-fixed"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 PhotoSphereViewer"/>
+					<CompileFile command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PhotoSphereViewer/fast">
+				<Option output="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/PhotoSphereViewer.exe" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/PUBLIC"/>
+					<Add directory="C:/msys64/mingw64/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include-fixed"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 PhotoSphereViewer/fast"/>
+					<CompileFile command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PhotoSphere">
+				<Option output="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir/PhotoSphere.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/PUBLIC"/>
+					<Add directory="C:/msys64/mingw64/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include-fixed"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 PhotoSphere"/>
+					<CompileFile command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="PhotoSphere/fast">
+				<Option output="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir/PhotoSphere.objlib" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/PUBLIC"/>
+					<Add directory="C:/msys64/mingw64/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/include"/>
+					<Add directory="C:/msys64/home/eecur/PhotoSphereViewer/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/x86_64-w64-mingw32"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include/c++/6.2.0/backward"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../include"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/include-fixed"/>
+					<Add directory="C:/msys64/mingw64/bin/../lib/gcc/x86_64-w64-mingw32/6.2.0/../../../../x86_64-w64-mingw32/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 PhotoSphere/fast"/>
+					<CompileFile command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="C:/msys64/usr/bin/make.exe -f &quot;C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir/FreeGLUTDemoWindow.cpp.obj">
+			<Option target="PhotoSphereViewer"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir/PhotoSphere.cpp.obj">
+			<Option target="PhotoSphereViewer"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir/PhotoSphereProperty.cpp.obj">
+			<Option target="PhotoSphereViewer"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir/Utilities.cpp.obj">
+			<Option target="PhotoSphereViewer"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir/Window.cpp.obj">
+			<Option target="PhotoSphereViewer"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/main.cpp">
+			<Option target="PhotoSphereViewer"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/src/FreeGLUTDemoWindow.cpp">
+			<Option target="PhotoSphere"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/src/PhotoSphere.cpp">
+			<Option target="PhotoSphere"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/src/PhotoSphereProperty.cpp">
+			<Option target="PhotoSphere"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/src/Utilities.cpp">
+			<Option target="PhotoSphere"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/src/Window.cpp">
+			<Option target="PhotoSphere"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/cmake/dependencies.cmake">
+			<Option virtualFolder="CMake Files\cmake\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/cmake/Modules/FindExiv2.cmake">
+			<Option virtualFolder="CMake Files\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/cmake/Modules/FindFreeGLUT.cmake">
+			<Option virtualFolder="CMake Files\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/cmake/Modules/FindFreeImage.cmake">
+			<Option virtualFolder="CMake Files\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/cmake/Modules/FindGLM.cmake">
+			<Option virtualFolder="CMake Files\cmake\Modules\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\packages\cxpl\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\packages\cxpl\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\packages\cxpl\src\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\packages\cxpl\src\"/>
+		</Unit>
+		<Unit filename="C:/msys64/home/eecur/PhotoSphereViewer/src/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\src\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

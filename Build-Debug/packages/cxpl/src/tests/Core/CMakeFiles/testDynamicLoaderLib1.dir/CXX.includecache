@@ -1,0 +1,46 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../packages/cxpl/include/cxpl/Core/DynamicLoader.h
+direct.h
+-
+windows.h
+-
+sys/type.h
+-
+dlfcn.h
+-
+functional
+-
+memory
+-
+cxpl/Core/ErrorHandler.h
+-
+
+../packages/cxpl/include/cxpl/Core/ErrorHandler.h
+iostream
+-
+string
+-
+functional
+-
+memory
+-
+
+../packages/cxpl/include/tests/testDynamicLoader.h
+cxpl/Core/DynamicLoader.h
+-
+vector
+-
+
+C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/src/tests/Core/DynamicLoader_lib1.cpp
+tests/testDynamicLoader.h
+-
+algorithm
+-
+

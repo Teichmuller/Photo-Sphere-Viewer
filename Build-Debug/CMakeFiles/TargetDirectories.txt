@@ -1,0 +1,10 @@
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/CMakeFiles/rebuild_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/CMakeFiles/edit_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/CMakeFiles/PhotoSphereViewer.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/packages/cxpl/CMakeFiles/rebuild_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/packages/cxpl/CMakeFiles/edit_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/packages/cxpl/src/CMakeFiles/rebuild_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/packages/cxpl/src/CMakeFiles/edit_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/rebuild_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/edit_cache.dir
+C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/src/CMakeFiles/PhotoSphere.dir

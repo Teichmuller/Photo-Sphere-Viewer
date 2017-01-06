@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../packages/cxpl/include/cxpl/Core/ErrorHandler.h
+iostream
+-
+string
+-
+functional
+-
+memory
+-
+
+C:/msys64/home/eecur/PhotoSphereViewer/packages/cxpl/src/tests/Core/ErrorHandler.cpp
+sstream
+-
+cxpl/Core/ErrorHandler.h
+-
+
