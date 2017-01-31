@@ -6,10 +6,18 @@
 #include <cmath>
 #include <iostream>
 
+<<<<<<< HEAD
 #include <PhotoSphereViewer/FreeGLUTDemoWindow.h>
 #include <PhotoSphereViewer/PhotoSphere.h>
 #include <PhotoSphereViewer/PhotoSphereProperty.h>
 #include <cxpl/Core/ErrorHandler.h>
+=======
+#include <FreeGLUTDemoWindow.h>
+#include <PhotoSphere.h>
+#include <PhotoSphereProperty.h>
+#include <ErrorHandler.h>
+#include <exiv2/exiv2.hpp>
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
 using namespace std;
 using namespace glm;
@@ -27,7 +35,11 @@ vec3 position(0);
 vec3 CurrentPos = vec3(0), PrevPos = vec3(0);
 
 int WindowWidth = 800, WindowHeight = 600;
+<<<<<<< HEAD
 GLdouble ratio = (GLdouble)WindowWidth / (GLdouble)WindowHeight;
+=======
+GLdouble ratio = (float)WindowWidth / (float)WindowHeight;
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 bool IsFullScreen = false;
 
 float fovy = quarter_pi<float>();
@@ -47,8 +59,13 @@ vec3 MouseToSphere(vec2 pos)
 
 void ApplyTransform()
 {
+<<<<<<< HEAD
     ps->GetShader()->Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader()->ID(), "transform");
+=======
+    ps->GetShader().Use();
+    GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "transform");
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(transform_mat));
     glutPostRedisplay();
 }
@@ -58,8 +75,13 @@ void ApplyProjection()
     ratio = (float)WindowWidth / (float)WindowHeight;
     //projection = ortho<float>(-1, 1, -1, 1, -100, 100);
     projection = perspective<float>(fovy, ratio, 0.01, 1000);
+<<<<<<< HEAD
     ps->GetShader()->Use();
     GLint transformLoc = glGetUniformLocation(ps->GetShader()->ID(), "projection");
+=======
+    ps->GetShader().Use();
+    GLint transformLoc = glGetUniformLocation(ps->GetShader().Program, "projection");
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
     glUniformMatrix4fv(transformLoc, 1, GL_FALSE, glm::value_ptr(projection));
     glutPostRedisplay();
 }
@@ -174,13 +196,18 @@ void Specialkey(int key, int x, int y)
 bool Init(const string &filename)
 {
     ps = PhotoSphere::FromFile(filename, 104, 52);
+<<<<<<< HEAD
     CHECK_MSG_RET_FALSE(ps != nullptr, "Failed to create class PhotoSphere!")
+=======
+    COND_ERROR_HANDLE_FALSE(ps != nullptr, "Failed to create class PhotoSphere!", NOACTION)
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 //    int value;
 //    glGetIntegerv(GL_MAX_TEXTURE_SIZE, &value);
 
     glEnable(GL_DEPTH_TEST);
 
     // Enable V-Sync to avoid tearing
+<<<<<<< HEAD
     //wglSwapIntervalEXT(1);
     return true;
 }
@@ -193,6 +220,54 @@ int main(int argc, char **argv)
         filename = string(argv[1]);
     else
         filename = string("TestImage.jpg");
+=======
+    wglSwapIntervalEXT(1);
+    return true;
+}
+
+void Dispose()
+{
+}
+
+int main(int argc, char **argv)
+{/*
+    COND_ERROR_HANDLE_RET(argc > 1, "Usage: PhotoSphereViewer filename", NOACTION, 0);
+    string filename(argv[1]);
+*/
+    string filename("TestImage.jpg");
+    /*
+    cout << "Entrying" << endl;
+    const string panoramaImageName("F:/2016-8-12~14 (Kanas)/PANO_20160813_123415.jpg");
+    const string ordinaryImageName("F:/2016-8-12~14 (Kanas)/IMG_20160812_125349.jpg");
+    Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(panoramaImageName);
+
+    COND_ERROR_HANDLE_RET(image.get() != 0, "Open image failed!", NOACTION, 0);
+    cout << "Read successful: " << image.get() << endl;
+
+    image->readMetadata();
+    image->printStructure(cout, Exiv2::kpsXMP);
+
+    Exiv2::XmpData& xmp = image->xmpData();
+    for (auto i = xmp.begin(); i != xmp.end(); i++)
+    {
+        cout << i->key() << ' '
+             << i->count() << ' '
+             << i->size() << ' '
+             << i->toString() << endl;
+    }
+    const string longTestKey("Xmp.GPano.CroppedAreaImageWidthPixels");
+    const string floatTestKey("Xmp.GPano.PoseHeadingDegrees");
+    const string boolTestKey("Xmp.GPano.UsePanoramaViewer");
+    cout << longTestKey << ' ' << xmp[longTestKey].toLong() << endl;
+    cout << floatTestKey << ' ' << xmp[floatTestKey].toFloat() << endl;
+    cout << boolTestKey << ' ' << xmp[boolTestKey].toLong() << endl;
+    shared_ptr<PhotoSphereProperty> ps = PhotoSphereProperty::FromFile(panoramaImageName);
+    cout << ps->m_UsePanoramaViewer << endl;
+    cout << ps->m_ProjectionType << endl;
+    cout << ps->m_CroppedAreaImageWidthPixels << endl;
+    cout << ps->m_PoseHeadingDegrees << endl;
+    */
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
     cout << "Creating Window..." << endl;
     FreeGLUTDemoWindowCreationArgs args;
@@ -203,6 +278,7 @@ int main(int argc, char **argv)
     args.height = 600;
     MainWindow = Window::Create<FreeGLUTDemoWindow>(args);
     cout << "Window created." << endl;
+<<<<<<< HEAD
     //cout << "Instance: " << FreeGLUTDemoWindow::m_instance << endl;
     //cout << "ID: " << MainWindow->m_id << endl;
 
@@ -214,6 +290,19 @@ int main(int argc, char **argv)
 
     glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
     //cout << "Registering functions..." << endl;
+=======
+    cout << "Instance: " << FreeGLUTDemoWindow::m_instance << endl;
+    cout << "ID: " << MainWindow->m_id << endl;
+
+    cout << "Initializing GLEW..." << endl;
+    COND_ERROR_HANDLE_RET(glewInit() == GLEW_OK, "GLEW initialization failed!", Dispose, 0);
+    cout << "GLEW initialled." << endl;
+
+    COND_ERROR_HANDLE_RET(Init(filename), "Initialzation failed!", Dispose, 0);
+
+    glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
+    cout << "Registering functions..." << endl;
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
     glutReshapeFunc(Reshape);
     // Deregister idle function to reduce CPU time
 //    glutIdleFunc(Idle);
@@ -223,12 +312,22 @@ int main(int argc, char **argv)
     glutMouseWheelFunc(MouseWheel);
     glutKeyboardFunc(Keyboard);
     glutSpecialFunc(Specialkey);
+<<<<<<< HEAD
     //cout << "Function registered." << endl;
+=======
+    cout << "Function registered." << endl;
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
     cout << "Entering main loop..." << endl;
     MainWindow->MainLoop();
     cout << "Left main loop." << endl;
 
+<<<<<<< HEAD
+=======
+    Dispose();
+    cout << "Disposed." << endl;
+
+>>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
     return 0;
 }
 
