@@ -10,7 +10,6 @@
 #include <PhotoSphereViewer/PhotoSphere.h>
 #include <PhotoSphereViewer/PhotoSphereProperty.h>
 #include <cxpl/Core/ErrorHandler.h>
-#include <exiv2/exiv2.hpp>
 
 using namespace std;
 using namespace glm;
@@ -187,43 +186,13 @@ bool Init(const string &filename)
 }
 
 int main(int argc, char **argv)
-{/*
-    COND_ERROR_HANDLE_RET(argc > 1, "Usage: PhotoSphereViewer filename", NOACTION, 0);
-    string filename(argv[1]);
-*/
-    string filename("Test1.jpg");
-    /*
-    cout << "Entrying" << endl;
-    const string panoramaImageName("F:/2016-8-12~14 (Kanas)/PANO_20160813_123415.jpg");
-    const string ordinaryImageName("F:/2016-8-12~14 (Kanas)/IMG_20160812_125349.jpg");
-    Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(panoramaImageName);
-
-    COND_ERROR_HANDLE_RET(image.get() != 0, "Open image failed!", NOACTION, 0);
-    cout << "Read successful: " << image.get() << endl;
-
-    image->readMetadata();
-    image->printStructure(cout, Exiv2::kpsXMP);
-
-    Exiv2::XmpData& xmp = image->xmpData();
-    for (auto i = xmp.begin(); i != xmp.end(); i++)
-    {
-        cout << i->key() << ' '
-             << i->count() << ' '
-             << i->size() << ' '
-             << i->toString() << endl;
-    }
-    const string longTestKey("Xmp.GPano.CroppedAreaImageWidthPixels");
-    const string floatTestKey("Xmp.GPano.PoseHeadingDegrees");
-    const string boolTestKey("Xmp.GPano.UsePanoramaViewer");
-    cout << longTestKey << ' ' << xmp[longTestKey].toLong() << endl;
-    cout << floatTestKey << ' ' << xmp[floatTestKey].toFloat() << endl;
-    cout << boolTestKey << ' ' << xmp[boolTestKey].toLong() << endl;
-    shared_ptr<PhotoSphereProperty> ps = PhotoSphereProperty::FromFile(panoramaImageName);
-    cout << ps->m_UsePanoramaViewer << endl;
-    cout << ps->m_ProjectionType << endl;
-    cout << ps->m_CroppedAreaImageWidthPixels << endl;
-    cout << ps->m_PoseHeadingDegrees << endl;
-    */
+{
+    CHECK_MSG_RET(argc <= 2, "Usage: PhotoSphereViewer [<filename>]", 0);
+    string filename;
+    if (argc > 1)
+        filename = string(argv[1]);
+    else
+        filename = string("TestImage.jpg");
 
     cout << "Creating Window..." << endl;
     FreeGLUTDemoWindowCreationArgs args;

@@ -27,3 +27,10 @@ if(NOT CMAKE_INSTALL_COMPONENT)
   endif()
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/packages/cxpl/src/tests/cmake_install.cmake")
+  include("C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug/packages/cxpl/src/tools/cmake_install.cmake")
+
+endif()
+

@@ -143,8 +143,6 @@ PhotoSphereViewer/PhotoSphereProperty.h
 -
 cxpl/Core/ErrorHandler.h
 -
-exiv2/exiv2.hpp
--
 
 C:/msys64/mingw64/include/FreeImage.h
 wchar.h

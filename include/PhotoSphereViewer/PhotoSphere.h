@@ -39,7 +39,7 @@ namespace PhotoSphereViewer
         shared_ptr<BufferObject> m_vbo;
         shared_ptr<BufferObject> m_tbo;
         shared_ptr<BufferObject> m_ibo;
-        Texture *m_texture;
+        shared_ptr<Texture> m_texture;
 
         void GenerateSphere(uint32_t hslice, uint32_t vslice, vector<vec3> &vertices, vector<vec3> &texCoord, vector<GLuint> &indices);
 

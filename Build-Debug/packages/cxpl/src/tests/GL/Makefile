@@ -111,6 +111,21 @@ depend:
 .PHONY : depend
 
 # Convenience name for target.
+packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/rule:
+	cd C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug && $(MAKE) -f CMakeFiles/Makefile2 packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/rule
+.PHONY : packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/rule
+
+# Convenience name for target.
+Sprite: packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/rule
+
+.PHONY : Sprite
+
+# fast build rule for target.
+Sprite/fast:
+	cd C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug && $(MAKE) -f packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/build.make packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/build
+.PHONY : Sprite/fast
+
+# Convenience name for target.
 packages/cxpl/src/tests/GL/CMakeFiles/Julia.dir/rule:
 	cd C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug && $(MAKE) -f CMakeFiles/Makefile2 packages/cxpl/src/tests/GL/CMakeFiles/Julia.dir/rule
 .PHONY : packages/cxpl/src/tests/GL/CMakeFiles/Julia.dir/rule
@@ -152,6 +167,33 @@ Julia.cpp.s:
 	cd C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug && $(MAKE) -f packages/cxpl/src/tests/GL/CMakeFiles/Julia.dir/build.make packages/cxpl/src/tests/GL/CMakeFiles/Julia.dir/Julia.cpp.s
 .PHONY : Julia.cpp.s
 
+Sprite.obj: Sprite.cpp.obj
+
+.PHONY : Sprite.obj
+
+# target to build an object file
+Sprite.cpp.obj:
+	cd C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug && $(MAKE) -f packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/build.make packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/Sprite.cpp.obj
+.PHONY : Sprite.cpp.obj
+
+Sprite.i: Sprite.cpp.i
+
+.PHONY : Sprite.i
+
+# target to preprocess a source file
+Sprite.cpp.i:
+	cd C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug && $(MAKE) -f packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/build.make packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/Sprite.cpp.i
+.PHONY : Sprite.cpp.i
+
+Sprite.s: Sprite.cpp.s
+
+.PHONY : Sprite.s
+
+# target to generate assembly for a file
+Sprite.cpp.s:
+	cd C:/msys64/home/eecur/PhotoSphereViewer/Build-Debug && $(MAKE) -f packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/build.make packages/cxpl/src/tests/GL/CMakeFiles/Sprite.dir/Sprite.cpp.s
+.PHONY : Sprite.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -160,10 +202,14 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... Sprite"
 	@echo "... Julia"
 	@echo "... Julia.obj"
 	@echo "... Julia.i"
 	@echo "... Julia.s"
+	@echo "... Sprite.obj"
+	@echo "... Sprite.i"
+	@echo "... Sprite.s"
 .PHONY : help
 
 

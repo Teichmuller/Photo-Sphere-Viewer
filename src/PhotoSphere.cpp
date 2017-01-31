@@ -43,7 +43,7 @@ namespace PhotoSphereViewer
         CHECK_MSG_RET_NULLPTR(ret->m_texture != nullptr, "Creating texture failed!");
 
         glBindTexture(GL_TEXTURE_2D, *ret->m_texture);
-        /// clamp-to-edge to remove stiching line
+        /// clamp-to-edge to remove stitching line
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
@@ -76,7 +76,7 @@ namespace PhotoSphereViewer
     void PhotoSphere::Draw()
     {
         m_shader->Use();
-        glActiveTexture(GL_TEXTURE0);
+        //glActiveTexture(GL_TEXTURE0);
         glBindTexture(GL_TEXTURE_2D, *m_texture);
         glUniform1i(glGetUniformLocation(m_shader->ID(), "Texture"), 0);
         glBindVertexArray(*m_vao);
