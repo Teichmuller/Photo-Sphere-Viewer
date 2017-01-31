@@ -203,17 +203,17 @@ int main(int argc, char **argv)
     args.height = 600;
     MainWindow = Window::Create<FreeGLUTDemoWindow>(args);
     cout << "Window created." << endl;
-    cout << "Instance: " << FreeGLUTDemoWindow::m_instance << endl;
-    cout << "ID: " << MainWindow->m_id << endl;
+    //cout << "Instance: " << FreeGLUTDemoWindow::m_instance << endl;
+    //cout << "ID: " << MainWindow->m_id << endl;
 
-    cout << "Initializing GLEW..." << endl;
+    //cout << "Initializing GLEW..." << endl;
     CHECK_MSG_RET(glewInit() == GLEW_OK, "GLEW initialization failed!", 0);
-    cout << "GLEW initialled." << endl;
+    //cout << "GLEW initialled." << endl;
 
     CHECK_MSG_RET(Init(filename), "Initialzation failed!", 0);
 
     glutSetOption(GLUT_ACTION_ON_WINDOW_CLOSE, GLUT_ACTION_GLUTMAINLOOP_RETURNS);
-    cout << "Registering functions..." << endl;
+    //cout << "Registering functions..." << endl;
     glutReshapeFunc(Reshape);
     // Deregister idle function to reduce CPU time
 //    glutIdleFunc(Idle);
@@ -223,7 +223,7 @@ int main(int argc, char **argv)
     glutMouseWheelFunc(MouseWheel);
     glutKeyboardFunc(Keyboard);
     glutSpecialFunc(Specialkey);
-    cout << "Function registered." << endl;
+    //cout << "Function registered." << endl;
 
     cout << "Entering main loop..." << endl;
     MainWindow->MainLoop();

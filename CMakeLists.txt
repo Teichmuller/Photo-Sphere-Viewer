@@ -21,9 +21,6 @@ include(cmake/dependencies.cmake)
 include_directories(${Dependencies_INCLUDE_DIRS})
 
 # Configure CXPL
-set(cxpl_BUILD_TESTS OFF)
-set(cxpl_BUILD_TOOLS OFF)
-add_subdirectory(packages/cxpl)
 include_directories(${CMAKE_SOURCE_DIR}/packages/cxpl/include)
 
 # Compile

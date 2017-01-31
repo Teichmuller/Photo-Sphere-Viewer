@@ -7,10 +7,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <cxpl/GL/buffer.h>
-#include <cxpl/GL/shader.h>
-#include <cxpl/GL/texture.h>
-#include <cxpl/GL/utilities.h>
+#include <cxpl/GL/gl.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/type_ptr.hpp>
 
