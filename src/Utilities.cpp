@@ -1,15 +1,8 @@
-<<<<<<< HEAD
 #include <PhotoSphereViewer/Utilities.h>
 #include <glm/gtc/matrix_transform.hpp>
 #include <cxpl/Core/ErrorHandler.h>
 
 using namespace cxpl;
-=======
-#include <Utilities.h>
-#include <glm/gtc/matrix_transform.hpp>
-#include <ErrorHandler.h>
-
->>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 namespace PhotoSphereViewer
 {
 
@@ -23,20 +16,12 @@ namespace PhotoSphereViewer
     bool GetXMPBoolValue(const Exiv2::XmpData &data, const XMPProperty &property, bool *ret)
     {
         auto value_iter = data.findKey(Exiv2::XmpKey(property.Name));
-<<<<<<< HEAD
         CHECK_MSG_RET_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!");
-=======
-        COND_ERROR_HANDLE_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!", NOACTION);
->>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
         bool v_bool;
         const Exiv2::Xmpdatum &value_b = *value_iter;
         long v_tmp_bool = value_b.toLong();
-<<<<<<< HEAD
         CHECK_MSG_RET_FALSE(v_tmp_bool != -1, string("Key ") + property.Name + " is not set!");
-=======
-        COND_ERROR_HANDLE_FALSE(v_tmp_bool != -1, string("Key ") + property.Name + " is not set!", NOACTION);
->>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
         v_bool = (v_tmp_bool == 0 ? false : true);
         *ret = v_bool;
@@ -46,11 +31,7 @@ namespace PhotoSphereViewer
     bool GetXMPIntValue(const Exiv2::XmpData &data, const XMPProperty &property, long *ret)
     {
         auto value_iter = data.findKey(Exiv2::XmpKey(property.Name));
-<<<<<<< HEAD
         CHECK_MSG_RET_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!");
-=======
-        COND_ERROR_HANDLE_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!", NOACTION);
->>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
         const Exiv2::Xmpdatum &value_b = *value_iter;
         long v_long = value_b.toLong();
@@ -63,11 +44,7 @@ namespace PhotoSphereViewer
     bool GetXMPFloatValue(const Exiv2::XmpData &data, const XMPProperty &property, float *ret)
     {
         auto value_iter = data.findKey(Exiv2::XmpKey(property.Name));
-<<<<<<< HEAD
         CHECK_MSG_RET_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!");
-=======
-        COND_ERROR_HANDLE_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!", NOACTION);
->>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
         const Exiv2::Xmpdatum &value_b = *value_iter;
         float v_float = value_b.toFloat();
@@ -80,11 +57,7 @@ namespace PhotoSphereViewer
     bool GetXMPStringValue(const Exiv2::XmpData &data, const XMPProperty &property, string *ret)
     {
         auto value_iter = data.findKey(Exiv2::XmpKey(property.Name));
-<<<<<<< HEAD
         CHECK_MSG_RET_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!");
-=======
-        COND_ERROR_HANDLE_FALSE(value_iter != data.end(), string("Key ") + property.Name + " doesn't exist!", NOACTION);
->>>>>>> 49a8da9994ef4d1e1ae89cae56b17c1360461b8e
 
         const Exiv2::Xmpdatum &value_b = *value_iter;
         string v_string = value_b.toString();
